@@ -43,7 +43,7 @@
     function setBankBuyPrice() {
         getBankUpgradeCost = () => 
         {
-            return 696969696969;
+            return 69696969696969;
         }
     }
 
