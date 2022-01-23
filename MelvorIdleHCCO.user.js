@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Melvor Idle HCCO
-// @description Enables speciality game mode options for 12b and HCCO
+// @description Enables speciality game mode options for 12b and HCCO, by adding the strings to your character name.
 // @version     .1
 // @namespace   Silber
 // @match       https://melvoridle.com/*
