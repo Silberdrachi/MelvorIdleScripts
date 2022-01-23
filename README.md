@@ -10,5 +10,10 @@ When username contains 'HCCO'
 1. Changes completion percentages to take into account items only possible to acquire by combat related actions
 
 When username contains '12b'
-1. Change bank slot buy limit to 0
-2. Change bank slot tokens to no action
+1. Change bank slot cost to too much
+1. Change bank slot tokens to no action
+
+When username contains '1b'
+1. Change bank size to 1
+1. Change bank slot cost to too much
+1. Change bank slot tokens to no action
