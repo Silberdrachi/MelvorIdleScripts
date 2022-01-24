@@ -31,7 +31,7 @@
         // injecting button into the settings UI
         if ($("#settings-container")){
             var settingsContainer = $("#settings-container");
-            var values = ["Standard", "Hardcore", "Adventure", "Chaos"];
+            var values = ["Standard", "Hardcore", "Adventure", "Chaos(Not Supported)"];
  
             settingsContainer.find(".block-content")
                 .append($(document.createElement('h2'))
