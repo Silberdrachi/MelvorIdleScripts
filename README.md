@@ -21,8 +21,5 @@ When username contains '1b'
 1. Change bank slot tokens to no action
 
 ## MelvorIdleChangeMode
-Scripts to turn HC char into a HCCO with optional 12b option
-
-### Features
 
 Adds a button to the end of the settings menu allowing a user to change their gamemode at any time. Will cause it to go back to the character selection screen.
