@@ -50,14 +50,14 @@
     function removeBankTokenCalculation() {
         player.addMiscModifiers = () => 
         {
-            if (this.equipment.checkForItemID(CONSTANTS.item.Knights_Defender) && this.attackType === 'melee') {
-              this.modifiers.addModifiers({
+            if (player.equipment.checkForItemID(CONSTANTS.item.Knights_Defender) && player.attackType === 'melee') {
+                player.modifiers.addModifiers({
                 decreasedAttackInterval: 100,
                 decreasedDamageReduction: 3,
               });
             }
-            if (this.modifiers.increasedNonMagicPoisonChance > 0 && this.attackType !== 'magic') {
-              this.modifiers.addModifiers({
+            if (player.modifiers.increasedNonMagicPoisonChance > 0 && player.attackType !== 'magic') {
+                player.modifiers.addModifiers({
                 increasedChanceToApplyPoison: this.modifiers.increasedNonMagicPoisonChance,
               });
             }
@@ -80,31 +80,7 @@
 
     function hideNonCombat() {
         $($('.nav-main-heading') [4]).nextUntil('[id=nav-main-heading]').toggleClass('d-none');
-
-        toggleMenu = function(menu) {
-            let c = [
-              6,
-              7,
-              8,
-              9,
-              12,
-              16,
-              17,
-              18
-            ];
-            if (menu === 0) {
-              for (let i = 0; i < c.length; i++) {
-                $('#nav-skill-tooltip-' + c[i]).toggleClass('d-none');
-              }
-              if (combatMenu) {
-                $('#skill-menu-icon-1').attr('class', 'far fa-eye-slash text-muted ml-1');
-                combatMenu = false;
-              } else {
-                $('#skill-menu-icon-1').attr('class', 'far fa-eye text-muted ml-1');
-                combatMenu = true;
-              }
-            }
-        }
+        $($('.nav-main-heading') [4]).toggleClass('d-none');
     }
 
     // Shamelessly stolen from Xander#8896
