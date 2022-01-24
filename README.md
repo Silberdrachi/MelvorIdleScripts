@@ -1,7 +1,9 @@
-# MelvorIdleHCCO
+# Melvor Idle mod script repository
+
+## MelvorIdleHCCO
 Scripts to turn HC char into a HCCO with optional 12b option
 
-# Features
+### Features
 
 When username contains 'HCCO'
 1. Remove non-combat skill section from sidebar
