@@ -119,8 +119,7 @@
             DUNGEONS[Dungeons["Impending_Darkness"]].entryRequirements[0].levels = maxCombatLevelRequirement
     
             let requirementText = document.getElementById(`combat-Dungeon-${Dungeons["Impending_Darkness"]}-level-req-max`)
-            requirementText.classList.remove('text-danger')
-            requirementText.classList.add('text-success')
+            areaMenus.dungeon.updateRequirements()
             requirementText.innerText = " Requires Level 99 in all Combat Skills and Level 1 in all Non-Combat Skills"
         }    
     }
