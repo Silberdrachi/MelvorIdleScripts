@@ -1,7 +1,9 @@
-# MelvorIdleHCCO
+# Melvor Idle mod script repository
+
+## MelvorIdleHCCO
 Scripts to turn HC char into a HCCO with optional 12b option
 
-# Features
+### Features
 
 When username contains 'HCCO'
 1. Remove non-combat skill section from sidebar
@@ -17,3 +19,7 @@ When username contains '1b'
 1. Change bank size to 1
 1. Change bank slot cost to too much
 1. Change bank slot tokens to no action
+
+## MelvorIdleChangeMode
+
+Adds a button to the end of the settings menu allowing a user to change their gamemode at any time. Will cause it to go back to the character selection screen.
