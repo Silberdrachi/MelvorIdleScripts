@@ -131,7 +131,7 @@
     function loadScript() {
         if (typeof confirmedLoaded !== 'undefined' && confirmedLoaded) {
             clearInterval(interval);
-            console.log('Loading HCCO Script');
+            console.log('Loading Melvor Idle HCCO Script');
             hccoScript();
         }
     }
