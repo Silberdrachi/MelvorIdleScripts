@@ -17,7 +17,7 @@
 })(() => {
     'use strict';
 
-    function hccoScript() {
+    function injectSettingsChangeMode() {
         // function for dropdown to use
         window.changeGameMode = function (modeId) {
             modeId = parseInt(modeId);
@@ -69,7 +69,7 @@
         if (typeof confirmedLoaded !== 'undefined' && confirmedLoaded) {
             clearInterval(interval);
             console.log('Loading Melvor Idle Change Game Mode script');
-            hccoScript();
+            injectSettingsChangeMode();
         }
     }
 
