@@ -2,7 +2,6 @@
 
 ## MelvorIdleHCCO
 Scripts to turn HC char into a HCCO with optional 12b option
-
 ### Features
 
 When username contains 'HCCO'
@@ -22,4 +21,12 @@ When username contains '1b'
 
 ## MelvorIdleChangeMode
 
-Adds a button to the end of the settings menu allowing a user to change their gamemode at any time. Will cause it to go back to the character selection screen.
+Adds a button to the end of the settings menu allowing a user to change their gamemode at any time. Will cause it to go back to the character selection.screen.
+
+## MelvorIdleCIIHelper
+
+Adds a button to the combat UI to allow the user to copy the current settings in a URL form to CII. Letting the user avoid entering data.
+
+## MelvorIdleAutoeat
+
+Autoeats if attack will kill player, changes food if required.
