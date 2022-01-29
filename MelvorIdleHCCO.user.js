@@ -30,6 +30,7 @@
             setBankBuyPrice();
             removeBankTokenCalculation();
             overwriteBankQuantity12b();
+            updateBank();
         }
 
         if (username.includes("1b")) {
@@ -37,6 +38,7 @@
             setBankBuyPrice();
             removeBankTokenCalculation();
             overwriteBankQuantity1b();
+            updateBank();
         }
     }
 
