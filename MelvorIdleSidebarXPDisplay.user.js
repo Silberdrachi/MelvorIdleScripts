@@ -2,7 +2,7 @@
 // @name        Melvor Idle Sidebar XP Display
 // @namespace   http://tampermonkey.net/
 // @version     1.0
-// @description Adds XP to sidebar.
+// @description Adds Skills XP to sidebar.
 // @author      Xander#8896, Silber
 // @match       https://melvoridle.com/*
 // @match       https://www.melvoridle.com/*
