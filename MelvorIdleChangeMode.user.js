@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Melvor Idle Change Game Mode
 // @description Adds a button to the settings page to allow the user to change their game mode at will
-// @version     .1
+// @version     1
 // @namespace   Silber
 // @match       https://melvoridle.com/*
 // @match       https://www.melvoridle.com/*
@@ -31,7 +31,7 @@
         // injecting button into the settings UI
         if ($("#settings-container")){
             var settingsContainer = $("#settings-container");
-            var values = ["Standard", "Hardcore", "Adventure", "Chaos(Not Supported)"];
+            var values = ["Standard", "Hardcore", "Adventure", "Chaos (Not Supported)", "Hardcore Adventure (Not Supported)", "Internal Suffering Speedrun"];
  
             settingsContainer.find(".block-content")
                 .append($(document.createElement('h2'))
