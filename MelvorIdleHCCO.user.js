@@ -81,8 +81,8 @@
     }
 
     function hideNonCombat() {
-        $($('.nav-main-heading') [4]).nextUntil('[id=nav-main-heading]').toggleClass('d-none');
-        $($('.nav-main-heading') [4]).toggleClass('d-none');
+        $($('.nav-main-heading') [5]).nextUntil('[id=nav-main-heading]').toggleClass('d-none');
+        $($('.nav-main-heading') [5]).toggleClass('d-none');
     }
 
     // Shamelessly stolen from Xander#8896
