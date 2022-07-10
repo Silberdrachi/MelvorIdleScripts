@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name        Melvor Idle AutoEat
 // @description Autoeats if attack will kill player, changes food if required
-// @version     .1
+// @version     1.0
 // @namespace   Silber
 // @match       https://melvoridle.com/*
 // @match       https://www.melvoridle.com/*
 // @match       https://test.melvoridle.com/*
-// @grant       none
+// @noframes
+// @grant        none
 // ==/UserScript==
 /* jshint esversion: 6 */
 

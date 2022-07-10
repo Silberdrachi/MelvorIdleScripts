@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name        Melvor Idle Change Game Mode
 // @description Adds a button to the settings page to allow the user to change their game mode at will
-// @version     1
+// @version     1.0
 // @namespace   Silber
 // @match       https://melvoridle.com/*
 // @match       https://www.melvoridle.com/*
 // @match       https://test.melvoridle.com/*
-// @grant       none
+// @noframes
+// @grant        none
 // ==/UserScript==
 /* jshint esversion: 6 */
 

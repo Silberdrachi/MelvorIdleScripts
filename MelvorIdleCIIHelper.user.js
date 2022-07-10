@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name        Melvor Idle Can I Idle Helper
 // @description Adds a button to the combat page to copy the CII url
-// @version     1
+// @version     1.0
 // @namespace   Silber
 // @match       https://melvoridle.com/*
 // @match       https://www.melvoridle.com/*
 // @match       https://test.melvoridle.com/*
-// @grant       none
+// @noframes
+// @grant        none
 // ==/UserScript==
 /* jshint esversion: 6 */
 
