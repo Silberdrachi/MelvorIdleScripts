@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        Melvor Idle Can I Idle Helper
 // @description Adds a button to the combat page to copy the CII url
-// @version     .1
+// @version     1
 // @namespace   Silber
 // @match       https://melvoridle.com/*
 // @match       https://www.melvoridle.com/*
@@ -24,7 +24,12 @@
             var totalHealth = player.stats.maxHitpoints;
             var currentDR = player.stats.damageReduction;
             var wastefulRing = player.equipment.checkForItemID(Items.Wasteful_Ring);
-            var guardianAmulet = player.equipment.checkForItemID(Items.Guardian_Amulet);;
+            var guardianAmulet = player.equipment.checkForItemID(Items.Guardian_Amulet);
+            var yak = player.equipment.checkForItemID(Items.Summoning_Familiar_Yak);
+            var minotaur = player.equipment.checkForItemID(Items.Summoning_Familiar_Minotaur);
+            var centaur = player.equipment.checkForItemID(Items.Summoning_Familiar_Centaur);
+            var witch = player.equipment.checkForItemID(Items.Summoning_Familiar_Witch);
+            var cyclops = player.equipment.checkForItemID(Items.Summoning_Familiar_Cyclops);
 
             var autoEatLevel = null;
             if (shopItemsPurchased.get("General:1")){
@@ -63,9 +68,21 @@
                     break;
             }
 
-            navigator.clipboard.writeText(baseUrl + "?" + "totalHealth=" + totalHealth +
-            "&" + "currentDR=" + currentDR + "&" + "autoEatLevel=" + autoEatLevel + "&" + "combatStyle=" + combatStyle + "&" + "gameMode=" + gameMode +
-            "&" + "wastefulRing=" + wastefulRing + "&" + "guardianAmulet=" + guardianAmulet)
+            var yakSynergy = "None";
+            if (yak) {
+                if (minotaur) {
+                    yakSynergy = "Minotaur";
+                } else if (centaur) {
+                    yakSynergy = "Centaur";
+                } else if (witch) {
+                    yakSynergy = "Witch";
+                } else if (cyclops) {
+                    yakSynergy = "Cyclops";
+                }
+            }
+
+            navigator.clipboard.writeText(baseUrl + "?totalHealth=" + totalHealth + "&currentDR=" + currentDR + "&autoEatLevel=" + autoEatLevel + "&combatStyle=" + 
+                combatStyle + "&gameMode=" + gameMode + "&wastefulRing=" + wastefulRing + "&guardianAmulet=" + guardianAmulet + "&yakSynergy=" + yakSynergy)
             .catch(err => {
               alert('Error in copying text: ', err);
             });
