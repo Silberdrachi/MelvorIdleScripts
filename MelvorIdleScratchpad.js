@@ -24,7 +24,7 @@
     
     updateBank();
     sortBank();
-        getBankTabValue();
+    getBankTabValue();
     SwalLocale.fire({
         icon: "success",
         title: "All done!",
@@ -129,3 +129,59 @@ combatManager.slayerTask.killsLeft = 99999;
 combatManager.slayerTask.tier = SlayerTiers.Easy;
 combatManager.slayerTask.renderRequired = true;
 combatManager.slayerTask.completion[SlayerTiers.Hard]+=276
+
+// Store a reference to the game's function
+const _addMasteryXPToPool = addMasteryXPToPool;
+// Overwrite the game's function with your own so yours gets called instead
+addMasteryXPToPool = (...args) => {
+    try {
+        // I always wrap my code in a try...catch so if it crashes it doesn't take the game down with it
+    } catch (e) {
+        console.error(e);
+    } finally {
+        // Call the game's function so it resumes as intended
+        _addMasteryXPToPool(...args);
+        // This could also be the first line of this function if that makes more sense in your scenario
+        // If you do call the original function first you don't need a finally block
+    }
+};
+
+// Finds all potions sold and unsells them
+items.filter(x=> x.isPotion).forEach(function(item) {
+	var count = game.stats.Items.get(item.id, ItemStats.TimesSold);
+	var value = game.stats.Items.get(item.id, ItemStats.GpFromSale);
+	if (count > 0) {
+		console.log(item.name + ", " + count + ", " + value);
+        addItemToBank(item.id, count, false);
+        updateGP((0-value), true)
+        game.stats.General.add(GeneralStats.TotalItemsSold, (0-count));
+        game.stats.Items.statsMap.get(item.id).stats.delete(ItemStats.TimesSold);
+        game.stats.Items.statsMap.get(item.id).stats.delete(ItemStats.GpFromSale);
+	}
+});
+
+function unsellItem(itemId) {
+    items.filter(x=> x.id == itemId).forEach(function(item) {
+        var count = game.stats.Items.get(item.id, ItemStats.TimesSold);
+        var value = game.stats.Items.get(item.id, ItemStats.GpFromSale);
+
+        if (count > 0) {
+            console.log("Found sold items: %s - count: %s, gp value: %s", item.name, count, value);
+            addItemToBank(item.id, count, false);
+            updateGP((0-value));
+            game.stats.General.add(GeneralStats.TotalItemsSold, (0-count));
+            game.stats.Items.statsMap.get(item.id).stats.delete(ItemStats.TimesSold);
+            game.stats.Items.statsMap.get(item.id).stats.delete(ItemStats.GpFromSale);
+        } else {
+            console.log("Invalid input value: %s", itemId)
+        }
+    });
+}
+
+// Info for new HCCO script to overwrite comp % calculations
+function getItemCompletionProgress(withPercent = true) {
+    const itemsFound = getItemsFound();
+    const itemsTotal = getTotalItemsForCompletion();
+    const progress = (itemsFound / itemsTotal) * 100;
+    return parseProgress(progress, withPercent);
+  }
