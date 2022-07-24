@@ -59,15 +59,21 @@
                 };
               });
             
-            // Remove agility selections TODO
-            game.agility.builtObstacles 
-            game.agility.builtPassivePillar 
+            // Remove agility selections
+            game.agility.builtObstacles = new Map();
+            game.agility.builtPassivePillar = undefined;
             
-            // Set agility build counts to 0 TODO
-            game.agility.obstacleBuildCount 
+            // Set agility build counts to 0
+            game.agility.obstacleBuildCount = new Map();
 
-            // Destroy crops TODO
-            resetFarmingPatch(areaID, patchID);
+            // Destroy crops
+            newFarmingAreas.forEach(area => {
+                var patchCount = 0;
+                area.patches.forEach(patch => {
+                    resetFarmingPatch(area.id, patchCount);
+                    patchCount += 1;
+                })
+            });
 
             // Unbuy crops
             newFarmingAreas.forEach(area => area.patches.forEach(patch => patch.unlocked = false));
@@ -141,6 +147,9 @@
                     prestiege();
                 })
         }
+
+        // Check localdata to see if player has prestieged (Replace with player data for multiplatform in the future?)
+            // Add xp modifier to the game mode and reload game mode settings? Or maybe add it to the player modifiers
     }
 
     function loadScript() {
