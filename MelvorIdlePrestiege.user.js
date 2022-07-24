@@ -59,20 +59,22 @@
                 };
               });
             
-            // Remove agility selections
+            // Remove agility selections TODO
             game.agility.builtObstacles 
             game.agility.builtPassivePillar 
             
-            // Set agility build counts to 0
+            // Set agility build counts to 0 TODO
             game.agility.obstacleBuildCount 
 
-            // Destroy crops
+            // Destroy crops TODO
             resetFarmingPatch(areaID, patchID);
 
             // Unbuy crops
             newFarmingAreas.forEach(area => area.patches.forEach(patch => patch.unlocked = false));
             newFarmingAreas[0].patches[0].unlocked = true;
-            loadFarmingArea(areaID);
+            loadFarmingArea(0);
+            loadFarmingArea(1);
+            loadFarmingArea(2);
 
             // Reset prayer selections
             combatManager.player.activePrayers = new Set();
@@ -84,10 +86,27 @@
             combatManager.player.spellSelection.standard = -1;
 
             // Remove items from gear sets
+            const itemsToAdd = new Map();
+            this.equipmentSets.forEach((set) =>{
+                const slotsToRemove = [
+                ];
+                set.slotArray.forEach((slot) =>{
+                    itemsToAdd.set(slot.item.id, ((_a = itemsToAdd.get(slot.item.id)) !== null && _a !== void 0 ? _a : 0) + slot.quantity);
+                    slotsToRemove.push(slot.type);
+                });
+                slotsToRemove.forEach((slotType) =>set.unequipItem(slotType));
+            });
+            itemsToAdd.forEach((quantity, itemID) =>addItemToBank(itemID, quantity, false, false, true));
+            if (itemsToAdd.size > 0) {
+                this.updateForEquipmentChange();
+                this.updateForEquipSetChange();
+            }
 
             // Wipe out bank
+            bank=[];
 
             // Wipe out combat loot container
+            combatManager.loot.actuallyDestroyAllLootNow();
 
             // Reset shop purchases (skill upgrades, god upgrades, bank slots, gear sets)
 
