@@ -22,6 +22,7 @@
         // Function called to reset character
         window.prestiege = function () {
             // End whatever active skill is running
+            idleChecker(-1);
 
             // Reset xp to 1
             skillXP = Array(skillXP.length).fill(1);
@@ -47,18 +48,40 @@
             dungeonCompleteCount = Array(dungeonCompleteCount.length).fill(0);
 
             // Remove potion selections
-
+            Herblore.potionPages.forEach((page) =>{
+                herbloreBonuses[page] = {
+                  itemID: 0,
+                  bonus: [
+                    null,
+                    null
+                  ],
+                  charges: 0,
+                };
+              });
+            
             // Remove agility selections
-
+            game.agility.builtObstacles 
+            game.agility.builtPassivePillar 
+            
             // Set agility build counts to 0
+            game.agility.obstacleBuildCount 
 
             // Destroy crops
+            resetFarmingPatch(areaID, patchID);
 
             // Unbuy crops
+            newFarmingAreas.forEach(area => area.patches.forEach(patch => patch.unlocked = false));
+            newFarmingAreas[0].patches[0].unlocked = true;
+            loadFarmingArea(areaID);
 
             // Reset prayer selections
+            combatManager.player.activePrayers = new Set();
 
             // Reset selected spells
+            combatManager.player.spellSelection.ancient = -1;
+            combatManager.player.spellSelection.aurora = -1;
+            combatManager.player.spellSelection.curse = -1;
+            combatManager.player.spellSelection.standard = -1;
 
             // Remove items from gear sets
 
